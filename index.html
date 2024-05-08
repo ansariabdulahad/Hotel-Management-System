@@ -19,8 +19,70 @@
 </head>
 
 <body>
-    <h1 class="text-success animate__animated animate__bounce"><i class="fas fa-home"></i>Welcome to Homepage</h1>
-    
+    <nav class="navbar mb-5 navbar-expand-md bg-light shadow-lg fixed-top navbar-light">
+        <div class="container-fluid">
+            <img src="./img/logo.jpg" width="60" alt="logo" class="shadow-lg rounded-circle">
+            <a href="#" class="navbar-brand text-white mx-4">
+                H M S
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="myMenu">
+                <ul class="navbar-nav w-100 justify-content-end">
+                    <li class="nav-item fw-bold text-white">
+                        Just For Code
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-md-6 mt-5">
+                <!-- Nav Tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#signup" class="active nav-link" data-bs-toggle="tab">
+                            Signup
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#login" class="nav-link" data-bs-toggle="tab">
+                            Login
+                        </a>
+                    </li>
+                </ul>
+                <!-- Nav Panes -->
+                <div class="tab-content">
+                    <div class="tab-pane container mt-3 mb-3 active" id="signup">
+                        <img src="./img/signup-2.webp" alt="signup-logo" class="w-25">
+                        <form>
+                            <input type="text" class="form-control mb-3" placeholder="Full Name">
+                            <input type="text" class="form-control mb-3" placeholder="Hotel Name">
+                            <input type="number" class="form-control mb-3" placeholder="No Of Hotel Room">
+                            <input type="tel" class="form-control mb-3" placeholder="Mobile">
+                            <input type="email" class="form-control mb-3" placeholder="Email">
+                            <input type="password" class="form-control mb-3" placeholder="Password">
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane container mt-3 mb-3" id="login">
+                        <img src="./img/login-2.jfif" alt="login-logo" class="w-25">
+                        <form>
+                            <input type="email" class="form-control mb-3" placeholder="Email">
+                            <input type="password" class="form-control mb-3" placeholder="Password">
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center">
+                <img src="./img/hotel-1.jpg" alt="hotel-img" class="w-100 mt-5 shadow-lg rounded">
+            </div>
+        </div>
+    </div>
 
     <script src="./js/index.js"></script>
 </body>
