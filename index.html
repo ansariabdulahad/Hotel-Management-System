@@ -44,20 +44,20 @@
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a href="#signup" class="active nav-link" data-bs-toggle="tab">
+                        <a href="#signup" class="nav-link" data-bs-toggle="tab">
                             Signup
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#login" class="nav-link" data-bs-toggle="tab">
+                        <a href="#login" class="active nav-link" data-bs-toggle="tab">
                             Login
                         </a>
                     </li>
                 </ul>
                 <!-- Nav Panes -->
                 <div class="tab-content">
-                    <div class="tab-pane container mt-3 mb-3 active" id="signup">
-                        <img src="./img/signup-2.webp" alt="signup-logo" class="w-25">
+                    <div class="tab-pane container mt-3 mb-3" id="signup">
+                        <img src="./img/signup-2.webp" alt="signup-logo" class="w-25 mb-1">
                         <form class="reg-form">
                             <input name="fullName" type="text" class="form-control mb-3" placeholder="Full Name">
                             <input name="hotelRoom" type="text" class="form-control mb-3" placeholder="Hotel Name">
@@ -69,11 +69,11 @@
                             <button type="submit" class="btn btn-primary w-100">Register</button>
                         </form>
                     </div>
-                    <div class="tab-pane container mt-3 mb-3" id="login">
-                        <img src="./img/login-2.jfif" alt="login-logo" class="w-25">
+                    <div class="tab-pane container mt-3 mb-3 active" id="login">
+                        <img src="./img/login-2.jfif" alt="login-logo" class="w-25 mb-1">
                         <form class="login-form">
-                            <input type="email" class="form-control mb-3" placeholder="Email">
-                            <input type="password" class="form-control mb-3" placeholder="Password">
+                            <input required type="email" class="form-control mb-3" placeholder="Email">
+                            <input required type="password" class="form-control mb-3" placeholder="Password">
                             <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
                     </div>

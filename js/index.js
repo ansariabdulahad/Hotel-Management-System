@@ -1,8 +1,13 @@
 // Global declarations
 let allUserInfo = [];
+
 let regForm = document.querySelector('.reg-form');
 let allInput = regForm.querySelectorAll('INPUT');
 let regBtn = regForm.querySelector('button');
+
+let loginForm = document.querySelector('.login-form');
+let allLoginInput = loginForm.querySelectorAll('INPUT');
+let loginBtn = loginForm.querySelector('button');
 
 // Get local information
 if (localStorage.getItem('allUserInfo') != null) {
@@ -69,3 +74,25 @@ regForm.onsubmit = (e) => {
 }
 
 // Login form coding
+loginForm.onsubmit = (e) => {
+    e.preventDefault();
+
+    let checkEmailAndPassword = allUserInfo.find((data) => data.email == allLoginInput[0].value && data.password == allLoginInput[1].value);
+
+    if (checkEmailAndPassword !== undefined) {
+        loginBtn.innerHTML = "Processing...";
+        loginBtn.disabled = true;
+        setTimeout(() => {
+            loginBtn.innerHTML = "Login";
+            loginBtn.disabled = false;
+            loginForm.reset();
+            window.location = "/profile/profile.html";
+        }, 2000);
+    } else {
+        Swal.fire({
+            title: "Failed!",
+            text: "Login failed",
+            icon: "warning"
+        });
+    }
+}
