@@ -58,19 +58,20 @@
                 <div class="tab-content">
                     <div class="tab-pane container mt-3 mb-3 active" id="signup">
                         <img src="./img/signup-2.webp" alt="signup-logo" class="w-25">
-                        <form>
-                            <input type="text" class="form-control mb-3" placeholder="Full Name">
-                            <input type="text" class="form-control mb-3" placeholder="Hotel Name">
-                            <input type="number" class="form-control mb-3" placeholder="No Of Hotel Room">
-                            <input type="tel" class="form-control mb-3" placeholder="Mobile">
-                            <input type="email" class="form-control mb-3" placeholder="Email">
-                            <input type="password" class="form-control mb-3" placeholder="Password">
+                        <form class="reg-form">
+                            <input name="fullName" type="text" class="form-control mb-3" placeholder="Full Name">
+                            <input name="hotelRoom" type="text" class="form-control mb-3" placeholder="Hotel Name">
+                            <input name="totalRoom" type="number" class="form-control mb-3"
+                                placeholder="No Of Hotel Room">
+                            <input name="mobile" type="tel" class="form-control mb-3" placeholder="Mobile">
+                            <input name="email" type="email" class="form-control mb-3" placeholder="Email">
+                            <input name="password" type="password" class="form-control mb-3" placeholder="Password">
                             <button type="submit" class="btn btn-primary w-100">Register</button>
                         </form>
                     </div>
                     <div class="tab-pane container mt-3 mb-3" id="login">
                         <img src="./img/login-2.jfif" alt="login-logo" class="w-25">
-                        <form>
+                        <form class="login-form">
                             <input type="email" class="form-control mb-3" placeholder="Email">
                             <input type="password" class="form-control mb-3" placeholder="Password">
                             <button type="submit" class="btn btn-primary w-100">Login</button>
@@ -78,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mt-5 mb-3 d-flex justify-content-center align-items-center">
                 <img src="./img/hotel-1.jpg" alt="hotel-img" class="w-100 mt-5 shadow-lg rounded">
             </div>
         </div>
