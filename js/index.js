@@ -87,6 +87,8 @@ loginForm.onsubmit = (e) => {
             loginBtn.disabled = false;
             loginForm.reset();
             window.location = "/profile/profile.html";
+            checkEmailAndPassword.password = null;
+            sessionStorage.setItem("__au__", JSON.stringify(checkEmailAndPassword))
         }, 2000);
     } else {
         Swal.fire({
