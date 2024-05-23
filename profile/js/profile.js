@@ -3,6 +3,7 @@ let userInfo;
 let user;
 let allBData = [];
 let allInHData = [];
+let allArchData = [];
 
 let navBrand = document.querySelector('.navbar-brand');
 let logoutBtn = document.querySelector('.logout-btn');
@@ -40,8 +41,10 @@ const fetchData = (key) => {
     }
 }
 
+// Read localStorage data and store it in array to stay consistent
 allBData = fetchData(user + '_allBData');
 allInHData = fetchData(user + '_allInHData');
+allArchData = fetchData(user + '_allArchData');
 
 // format date function
 const formatDate = (data, isTime) => {
@@ -111,6 +114,7 @@ const deleteDataFunc = (element, array, key) => {
     })
 }
 
+// Update Coding
 const updateDataFunc = (element, array, key) => {
     let allEditBtn = element.querySelectorAll('.edit-btn');
     allEditBtn.forEach((btn, index) => {
@@ -166,6 +170,31 @@ const updateDataFunc = (element, array, key) => {
     })
 }
 
+// Check in and Check out coding
+const checkInAndCheckOut = (element, array, key) => {
+    let allCheckBtn = element.querySelectorAll('.checkin-btn');
+
+    allCheckBtn.forEach((btn, index) => {
+        btn.onclick = () => {
+            let tmp = key.split('_')[1];
+            let data = array[index];
+            array.splice(index, 1); // delete data from array
+            localStorage.setItem(key, JSON.stringify(array));
+
+            if (tmp == 'allBData') {
+                allInHData.push(data);
+                localStorage.setItem(user + "_allInHData", JSON.stringify(allInHData));
+                ShowData(element, array, key);
+            }
+            else {
+                allArchData.push(data);
+                localStorage.setItem(user + "_allArchData", JSON.stringify(allArchData));
+                ShowData(element, array, key);
+            }
+        }
+    })
+}
+
 // show registration data
 const ShowData = (element, array, key) => {
     element.innerHTML = "";
@@ -200,6 +229,7 @@ const ShowData = (element, array, key) => {
 
     deleteDataFunc(element, array, key);
     updateDataFunc(element, array, key);
+    checkInAndCheckOut(element, array, key);
 }
 
 // Log out coding
