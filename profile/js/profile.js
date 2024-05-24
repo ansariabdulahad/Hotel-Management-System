@@ -8,18 +8,25 @@ let allArchData = [];
 let navBrand = document.querySelector('.navbar-brand');
 let logoutBtn = document.querySelector('.logout-btn');
 let modalCBtn = document.querySelectorAll('.btn-close');
+let allTabBtn = document.querySelectorAll('.tab-pan');
 
+// Booking pan variables
 let bookingForm = document.querySelector('.booking-form');
 let allBInput = bookingForm.querySelectorAll('input');
 let bTextarea = bookingForm.querySelector('textarea');
 let bListTBody = document.querySelector('.booking-list');
 let bRegBtn = document.querySelector('.b-register-btn');
 
+// In house pan variable
 let inHouseForm = document.querySelector('.inhouse-form');
 let allInHInput = inHouseForm.querySelectorAll('input');
 let inHTextarea = inHouseForm.querySelector('textarea');
 let inHListTBody = document.querySelector('.inhouse-list');
 let inHRegBtn = document.querySelector('.in-house-reg-btn');
+
+// Archive pan variables
+let archListTBody = document.querySelector('.archive-list');
+
 
 // check user is login or not
 if (sessionStorage.getItem('__au__') == null) {
@@ -74,7 +81,7 @@ const registrationFunc = (textarea, inputs, array, key) => {
         data[key] = value;
     }
 
-    array.push(data);
+    array.unshift(data);
     localStorage.setItem(key, JSON.stringify(array));
     Swal.fire({
         title: "Good job!",
@@ -182,12 +189,17 @@ const checkInAndCheckOut = (element, array, key) => {
             localStorage.setItem(key, JSON.stringify(array));
 
             if (tmp == 'allBData') {
-                allInHData.push(data);
+                allInHData.unshift(data);
                 localStorage.setItem(user + "_allInHData", JSON.stringify(allInHData));
                 ShowData(element, array, key);
             }
+            else if (tmp == 'allArchData') {
+                allBData.unshift(data);
+                localStorage.setItem(user + "_allBData", JSON.stringify(allBData));
+                ShowData(element, array, key);
+            }
             else {
-                allArchData.push(data);
+                allArchData.unshift(data);
                 localStorage.setItem(user + "_allArchData", JSON.stringify(allArchData));
                 ShowData(element, array, key);
             }
@@ -197,6 +209,7 @@ const checkInAndCheckOut = (element, array, key) => {
 
 // show registration data
 const ShowData = (element, array, key) => {
+    let tmp = key.split('_')[1];
     element.innerHTML = "";
     array.forEach((item, index) => {
         element.innerHTML += `
@@ -213,9 +226,9 @@ const ShowData = (element, array, key) => {
                 <td>${item.notice}</td>
                 <td>${formatDate(item.createdAt, true)}</td>
                 <td>
-                    <button class="btn btn-primary p-0 px-1 shadow-lg edit-btn">
+                    <button class="${tmp == 'allArchData' && 'd-none'} btn btn-primary p-0 px-1 shadow-lg edit-btn">
                         <i class="fa fa-edit"></i>
-                    </button>
+                    </button> 
                     <button class="btn btn-info text-white p-0 px-1 shadow-lg checkin-btn">
                         <i class="fa fa-check"></i>
                     </button>
@@ -224,7 +237,7 @@ const ShowData = (element, array, key) => {
                     </button>
                 </td>
             </tr >
-        `;
+    `;
     });
 
     deleteDataFunc(element, array, key);
@@ -263,5 +276,15 @@ inHouseForm.onsubmit = (e) => {
     ShowData(inHListTBody, allInHData, `${user}_allInHData`);
 }
 
+// refresh ui data coding
+for (let btn of allTabBtn) {
+    btn.onclick = () => {
+        ShowData(bListTBody, allBData, user + '_allBData');
+        ShowData(inHListTBody, allInHData, user + '_allInHData');
+        ShowData(archListTBody, allArchData, user + '_allArchData');
+    }
+}
+
 ShowData(bListTBody, allBData, user + '_allBData');
 ShowData(inHListTBody, allInHData, user + '_allInHData');
+ShowData(archListTBody, allArchData, user + '_allArchData');

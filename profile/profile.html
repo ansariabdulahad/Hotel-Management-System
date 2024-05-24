@@ -45,28 +45,29 @@
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a href="#booking" class="nav-link" data-bs-toggle="tab">
+                        <a href="#booking" class="nav-link tab-pan" data-bs-toggle="tab">
                             Booking
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#inhouse" class="nav-link active" data-bs-toggle="tab">
+                        <a href="#inhouse" class="nav-link tab-pan" data-bs-toggle="tab">
                             In House
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#in-house" class="nav-link" data-bs-toggle="tab">
-                            Cashier
+                        <a href="#archive" class="nav-link tab-pan active" data-bs-toggle="tab">
+                            Archive
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#in-house" class="nav-link" data-bs-toggle="tab">
-                            Archive
+                        <a href="#cashier" class="nav-link tab-pan" data-bs-toggle="tab">
+                            Cashier
                         </a>
                     </li>
                 </ul>
                 <!-- Nav Panes -->
                 <div class="tab-content">
+                    <!-- Booking Pan -->
                     <div class="tab-pane container mt-3 mb-3" id="booking">
                         <div class="row my-5">
                             <div class="col-md-4 text-center">
@@ -107,7 +108,8 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane container mt-3 mb-3 active" id="inhouse">
+                    <!-- In House Pan -->
+                    <div class="tab-pane container mt-3 mb-3" id="inhouse">
                         <div class="row my-5">
                             <div class="col-md-4 text-center">
                                 <button data-bs-toggle="modal" data-bs-target="#inhouse-modal"
@@ -141,6 +143,47 @@
                                     </tr>
                                 </thead>
                                 <tbody class="inhouse-list">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Archive pan -->
+                    <div class="tab-pane container mt-3 mb-3 active" id="archive">
+                        <div class="row my-5">
+                            <div class="col-md-4 text-center">
+                                <button data-bs-toggle="modal" data-bs-target="#archive-modal"
+                                    class="action-btn btn px-4 text-white fw-bold archive-reg-btn">Register</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button class="action-btn btn px-4 text-white fw-bold">Print</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <button class="action-btn btn text-white fw-bold">Total Booking</button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <h1>All Archive Data</h1>
+                            <table class="table text-nowrap table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Sr.no</th>
+                                        <th>Location</th>
+                                        <th>Room No</th>
+                                        <th>Fullname</th>
+                                        <th>Checkin</th>
+                                        <th>Checkout</th>
+                                        <th>Total People</th>
+                                        <th>Mobile</th>
+                                        <th>Price</th>
+                                        <th>Notice</th>
+                                        <th>Created At</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="archive-list">
 
                                 </tbody>
                             </table>
