@@ -30,7 +30,8 @@
             <div class="navbar-collapse collapse" id="myMenu">
                 <ul class="navbar-nav w-100 justify-content-end">
                     <div class="input-group w-50 shadow-lg">
-                        <input type="search" class="form-control" placeholder="Search by Name, Email, Room No...">
+                        <input type="search" class="form-control search-input"
+                            placeholder="Search by Name, Email, Room No...">
                         <span class="input-group-text text-white btn">Search</span>
                     </div>
                     <button class="action-btn btn fw-bold text-white px-4 mx-5 shadow-lg logout-btn">Logout</button>
@@ -45,7 +46,7 @@
                 <!-- Nav Tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a href="#booking" class="nav-link tab-pan" data-bs-toggle="tab">
+                        <a href="#booking" class="nav-link tab-pan active" data-bs-toggle="tab">
                             Booking
                         </a>
                     </li>
@@ -55,7 +56,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#archive" class="nav-link tab-pan active" data-bs-toggle="tab">
+                        <a href="#archive" class="nav-link tab-pan" data-bs-toggle="tab">
                             Archive
                         </a>
                     </li>
@@ -68,7 +69,7 @@
                 <!-- Nav Panes -->
                 <div class="tab-content">
                     <!-- Booking Pan -->
-                    <div class="tab-pane container mt-3 mb-3" id="booking">
+                    <div class="tab-pane search-pane container mt-3 mb-3 active" id="booking">
                         <div class="row my-5">
                             <div class="col-md-4 text-center">
                                 <button data-bs-toggle="modal" data-bs-target="#registration-modal"
@@ -109,7 +110,7 @@
                     </div>
 
                     <!-- In House Pan -->
-                    <div class="tab-pane container mt-3 mb-3" id="inhouse">
+                    <div class="tab-pane search-pane container mt-3 mb-3" id="inhouse">
                         <div class="row my-5">
                             <div class="col-md-4 text-center">
                                 <button data-bs-toggle="modal" data-bs-target="#inhouse-modal"
@@ -150,7 +151,7 @@
                     </div>
 
                     <!-- Archive pan -->
-                    <div class="tab-pane container mt-3 mb-3 active" id="archive">
+                    <div class="tab-pane search-pane container mt-3 mb-3" id="archive">
                         <div class="row my-5">
                             <div class="col-md-4 text-center">
                                 <button data-bs-toggle="modal" data-bs-target="#archive-modal"

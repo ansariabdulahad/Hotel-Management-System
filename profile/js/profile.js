@@ -9,6 +9,7 @@ let navBrand = document.querySelector('.navbar-brand');
 let logoutBtn = document.querySelector('.logout-btn');
 let modalCBtn = document.querySelectorAll('.btn-close');
 let allTabBtn = document.querySelectorAll('.tab-pan');
+let searchEl = document.querySelector('.search-input');
 
 // Booking pan variables
 let bookingForm = document.querySelector('.booking-form');
@@ -283,6 +284,39 @@ for (let btn of allTabBtn) {
         ShowData(inHListTBody, allInHData, user + '_allInHData');
         ShowData(archListTBody, allArchData, user + '_allArchData');
     }
+}
+
+const searchFunc = () => {
+    let value = searchEl.value.toLowerCase();
+    let tableEl = document.querySelector(".tab-content .search-pane.active");
+    let tr = tableEl.querySelectorAll('tbody tr');
+
+    for (let el of tr) {
+        let srNo = el.querySelectorAll('td')[0].innerText;
+        let location = el.querySelectorAll('td')[1].innerText;
+        let roomNo = el.querySelectorAll('td')[2].innerText;
+        let fullname = el.querySelectorAll('td')[3].innerText;
+        let mobile = el.querySelectorAll('td')[7].innerText;
+        let price = el.querySelectorAll('td')[8].innerText;
+
+        if (srNo.indexOf(value) != -1
+            || location.toLowerCase().indexOf(value) != -1
+            || roomNo.indexOf(value) != -1
+            || fullname.toLowerCase().indexOf(value) != -1
+            || mobile.indexOf(value) != -1
+            || price.indexOf(value) != -1
+        ) {
+            el.classList.remove('d-none');
+        }
+        else {
+            el.classList.add('d-none');
+        }
+    }
+}
+
+// Search input coding
+searchEl.oninput = () => {
+    searchFunc()
 }
 
 ShowData(bListTBody, allBData, user + '_allBData');
